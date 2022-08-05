@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- Font Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icon Scout -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Reads.</title>
+  </head>
+  <body>
+    <header class="head_bar">
+      <h1 class="head_bar__title">Reads.</h1>
+      <form id="searchBook">
+        <div class="input_group">
+          <input
+            id="searchBookTitle"
+            type="text"
+            class="form_control"
+            placeholder="Cari Judul Buku"
+          />
+          <button id="searchSubmit" type="submit" class="btn_search">
+            <i class="uil uil-search"></i>
+          </button>
+        </div>
+      </form>
+      <div class="user_profil">
+        <img src="./assets/images/photo-profile.jpg" alt="user profil" />
+        <p>Rian Munawar</p>
+      </div>
+    </header>
+    <main>
+      <div id="content">
+        <section class="amount_of_books">
+          <article class="amount_item">
+            <div class="circle_box">
+              <i class="uil uil-book"></i>
+            </div>
+            <div class="amount_detail">
+              <p><strong id="amountAll">0</strong></p>
+              <p>Total Buku</p>
+            </div>
+          </article>
+          <article class="amount_item">
+            <div class="circle_box">
+              <i class="uil uil-check"></i>
+            </div>
+            <div class="amount_detail">
+              <p><strong id="amountFinish">0</strong></p>
+              <p>Selesai dibaca</p>
+            </div>
+          </article>
+          <article class="amount_item">
+            <div class="circle_box">
+              <i class="uil uil-crosshair"></i>
+            </div>
+            <div class="amount_detail">
+              <p><strong id="amountUnFinish">0</strong></p>
+              <p>Belum selesai dibaca</p>
+            </div>
+          </article>
+        </section>
+        <section class="book_shelf">
+          <h3>Belum selesai dibaca</h3>
+
+          <div id="inFinishBookLists" class="book_list"></div>
+        </section>
+
+        <section class="book_shelf">
+          <h3>Selesai dibaca</h3>
+
+          <div id="finishedBookLists" class="book_list"></div>
+        </section>
+      </div>
+      <aside>
+        <section class="input_section">
+          <h2>Masukkan Buku Baru</h2>
+          <form id="inputBook">
+            <div class="input">
+              <label for="inputBookTitle">Judul</label>
+              <input
+                id="inputBookTitle"
+                class="form_control"
+                type="text"
+                required
+              />
+            </div>
+            <div class="input">
+              <label for="inputBookAuthor">Penulis</label>
+              <input
+                id="inputBookAuthor"
+                class="form_control"
+                type="text"
+                required
+              />
+            </div>
+            <div class="input">
+              <label for="inputBookYear">Tahun</label>
+              <input
+                id="inputBookYear"
+                class="form_control"
+                type="number"
+                required
+              />
+            </div>
+            <button id="bookSubmit" type="submit" class="btn_action btn_green">
+              Masukkan Buku ke rak
+            </button>
+          </form>
+        </section>
+      </aside>
+    </main>
+
+    <script src="./main.js"></script>
+  </body>
+</html>

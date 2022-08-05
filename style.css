@@ -1,0 +1,308 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f1f1f1;
+}
+
+input,
+button {
+  font-size: 16px;
+}
+
+.head_bar {
+  padding: 12px;
+  height: 14vh;
+  width: 100%;
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: space-between;
+  color: #101010;
+}
+
+.input_group {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.form_control {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  padding: 0 10px;
+}
+
+.form_control:focus {
+  outline: 1px solid #b96fff;
+}
+
+.form_control + .btn_search {
+  border: none;
+  background-color: transparent;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  width: 30px;
+  height: 40px;
+  position: absolute;
+  right: 0;
+}
+
+.user_profil {
+  min-width: 200px;
+  height: 40px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 4px;
+}
+
+.user_profil img {
+  width: 28px;
+  border-radius: 50%;
+}
+
+main {
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  gap: 30px;
+}
+
+#content {
+  flex: 2 1 auto;
+}
+
+.amount_of_books {
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.amount_of_books > .amount_item {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 8px;
+  width: 100%;
+  padding: 10px;
+  height: 80px;
+}
+
+.amount_of_books > .amount_item > .circle_box {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  background-color: #f7d748;
+}
+
+.amount_of_books > .amount_item > .circle_box > i {
+  font-size: 1.4em;
+  color: #fdfcfc;
+}
+
+.book_shelf {
+  background-color: #fff;
+  margin-top: 32px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.book_shelf > .book_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.book_shelf > .book_list > .book_item {
+  width: 18rem;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+  margin-top: 20px;
+  border-radius: 4px;
+}
+
+.book_shelf > .book_list > .book_item > .action {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.btn_action {
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  color: #fdfdfd;
+  margin-right: 10px;
+}
+
+.btn_action:hover {
+  cursor: pointer;
+}
+
+.btn_green {
+  background-color: #2de02d;
+}
+
+.btn_green:hover {
+  background-color: #5efd5e;
+}
+
+.btn_red {
+  background-color: #fd3333;
+}
+
+.btn_red:hover {
+  background-color: #fd5a5a;
+}
+
+aside {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  min-width: 30%;
+  max-width: 100%;
+}
+
+#inputBook {
+  margin-top: 20px;
+}
+
+#inputBook > .input {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#inputBook > .input .form_control {
+  border: 1px solid #101010;
+  width: 70%;
+}
+
+/* Popup */
+#popup {
+  visibility: hidden;
+  min-width: 250px;
+  max-width: 400px;
+  /* background-color: #fff; */
+  color: #101010;
+  text-align: center;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 5px 5px 10px rgba(139, 139, 139, 0.3);
+  position: fixed;
+  z-index: 1;
+  left: 60px;
+  top: 80px;
+}
+
+#popup.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the popup in and out */
+@-webkit-keyframes fadein {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    top: 80px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    top: 80px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    top: 80px;
+    opacity: 1;
+  }
+  to {
+    top: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    top: 80px;
+    opacity: 1;
+  }
+  to {
+    top: 0;
+    opacity: 0;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .amount_of_books {
+    justify-content: space-between;
+  }
+  .amount_of_books > .amount_item {
+    width: 300px;
+  }
+
+  .form_control {
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width: 835px) {
+  .head_bar {
+    flex-direction: column;
+    height: 200px;
+  }
+
+  .form_control {
+    width: 400px;
+  }
+
+  main {
+    flex-direction: column-reverse;
+  }
+}
+
+@media only screen and (max-width: 555px) {
+  #inputBook > .input {
+    flex-direction: column;
+    justify-content: start;
+    align-items: baseline;
+  }
+
+  #inputBook > .input .form_control {
+    width: 100%;
+  }
+
+  .form_control {
+    width: 300px;
+  }
+}
