@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     author.value = "";
     year.value = "";
   });
+
   isStrogeExist()
     ? renderDataFromLocalStorage()
     : popupMessage("Storage tidak di browser ini", "fail");
@@ -32,6 +33,7 @@ const addBook = () => {
   books.push(objectBooks);
 
   document.dispatchEvent(new Event(RENDER_EVENT));
+
   saveToLocalStorage();
 
   popupMessage("Data berhasil di tambahkan", "success");
@@ -66,6 +68,7 @@ document.addEventListener(RENDER_EVENT, () => {
   countBook();
 });
 
+// Count books
 function countBook() {
   const amountAll = document.getElementById("amountAll");
   const amountFinish = document.getElementById("amountFinish");
@@ -144,27 +147,31 @@ const createBookElement = (bookObject) => {
   return bookContainer;
 };
 
+// Handler add to finished
 const addToFinished = (bookId) => {
   const bookTarget = findBook(bookId);
   if (bookTarget === null) return;
 
   bookTarget.isCompleted = true;
+
   document.dispatchEvent(new Event(RENDER_EVENT));
   saveToLocalStorage();
   popupMessage("Buku berhasil dipindahkan", "success");
 };
 
+// Handler undo from finished
 const undoFromFinshed = (bookId) => {
   const bookTarget = findBook(bookId);
-
   if (bookTarget === null) return;
 
   bookTarget.isCompleted = false;
+
   document.dispatchEvent(new Event(RENDER_EVENT));
   saveToLocalStorage();
   popupMessage("Buku berhasil dipindahkan", "success");
 };
 
+// Handler book by Id
 const findBook = (bookId) => {
   for (const bookItem of books) {
     if (bookItem.id === bookId) return bookItem;
@@ -172,6 +179,7 @@ const findBook = (bookId) => {
   return null;
 };
 
+// Handler delete books by Id
 const deleteBook = (bookId) => {
   const bookTarget = findBookIndex(bookId);
 
@@ -183,15 +191,15 @@ const deleteBook = (bookId) => {
   popupMessage("Buku berhasil dihapus", "fail");
 };
 
+// Handler find index of book
 const findBookIndex = (bookid) => {
   for (const index in books) {
     if (books[index].id === bookid) return index;
   }
-
   return -1;
 };
 
-// handle search
+// handler search
 const searchBook = document.getElementById("searchBook");
 const inputSearch = document.getElementById("searchBookTitle");
 
@@ -202,6 +210,7 @@ searchBook.addEventListener("submit", (e) => {
 
   inputSearch.value = "";
 });
+
 inputSearch.addEventListener("keyup", filterBook);
 
 function filterBook(e) {
@@ -225,8 +234,6 @@ const saveToLocalStorage = () => {
   if (isStrogeExist()) {
     const parsedData = JSON.stringify(books);
     localStorage.setItem(STORAGE_KEY, parsedData);
-
-    // document.dispatchEvent(new Event(DATA_SAVED));
   }
 };
 
