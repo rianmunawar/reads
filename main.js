@@ -5,20 +5,23 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
 
     addBook();
-
-    const title = document.getElementById("inputBookTitle");
-    const author = document.getElementById("inputBookAuthor");
-    const year = document.getElementById("inputBookYear");
-
-    title.value = "";
-    author.value = "";
-    year.value = "";
+    clearInput();
   });
 
   isStrogeExist()
     ? renderDataFromLocalStorage()
-    : popupMessage("Storage tidak di browser ini", "fail");
+    : popupMessage("Storage tidak support di browser ini", "fail");
 });
+
+const clearInput = () => {
+  const title = document.getElementById("inputBookTitle");
+  const author = document.getElementById("inputBookAuthor");
+  const year = document.getElementById("inputBookYear");
+
+  title.value = "";
+  author.value = "";
+  year.value = "";
+};
 
 // Handle addbook
 const books = [];
@@ -33,9 +36,7 @@ const addBook = () => {
   books.push(objectBooks);
 
   document.dispatchEvent(new Event(RENDER_EVENT));
-
   saveToLocalStorage();
-
   popupMessage("Data berhasil di tambahkan", "success");
 };
 
@@ -229,7 +230,6 @@ function filterBook(e) {
 
 // Handle Local Storage
 const STORAGE_KEY = "BOOK_DATA";
-const DATA_SAVED = "data_saved";
 const saveToLocalStorage = () => {
   if (isStrogeExist()) {
     const parsedData = JSON.stringify(books);
